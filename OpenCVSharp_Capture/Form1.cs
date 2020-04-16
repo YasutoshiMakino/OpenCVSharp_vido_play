@@ -22,7 +22,7 @@ namespace OpenCVSharp_Capture
         {
             public const int MP4 = 0;
             public const int CSV = 1;
-            public const int DATA_LENGTH = 100000;
+            public const int DATA_LENGTH = 500000;
 
             public const int V_FRAMERATE_VID = 60;
             public const int V_FRAMERATE_GOPRO = 120;
@@ -496,6 +496,9 @@ namespace OpenCVSharp_Capture
         private void FiveFwdCSV_Click(object sender, EventArgs e) { ChangeCSV(5 * time_scale); }
         private void ResetCSV_Click(object sender, EventArgs e){ ChangeCSV(-1*diff_frame);} //リセットのために，現在のdiff_frame分だけ引く
 
+
+
+
         private void CutSave_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -576,6 +579,13 @@ namespace OpenCVSharp_Capture
             
         }
 
+        private void CSV_StartFrameReset_Click(object sender, EventArgs e)
+        {
+            diff_frame = -1* (int)((double)counter / v_framerate * Define.H_FRAMERATE);
+            double[] draw_data = ChooseData(csv_data, data_len);
+            DrawGraph(draw_data, GraphBox.Width);
+        }
+
         private void GoProCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (GoProCheck.Checked) v_framerate = Define.V_FRAMERATE_GOPRO;
@@ -631,6 +641,23 @@ namespace OpenCVSharp_Capture
             double[] draw_data = ChooseData(csv_data, data_len);
             DrawGraph(draw_data, GraphBox.Width);
         }
+
+        private void rScalex2_CheckedChanged(object sender, EventArgs e)
+        {
+            draw_scale = Define.DRAW_SCALE *2;
+            //グラフの更新
+            double[] draw_data = ChooseData(csv_data, data_len);
+            DrawGraph(draw_data, GraphBox.Width);
+        }
+
+        private void rScalex4_CheckedChanged(object sender, EventArgs e)
+        {
+            draw_scale = Define.DRAW_SCALE *4;
+            //グラフの更新
+            double[] draw_data = ChooseData(csv_data, data_len);
+            DrawGraph(draw_data, GraphBox.Width);
+        }
+
 
         private void VideoTimeBar_Scroll(object sender, EventArgs e)
         {

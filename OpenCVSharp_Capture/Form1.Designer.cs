@@ -52,6 +52,11 @@
             this.OneFwdCSV = new System.Windows.Forms.Button();
             this.OneBackCSV = new System.Windows.Forms.Button();
             this.CSVgroup = new System.Windows.Forms.GroupBox();
+            this.DrawScale = new System.Windows.Forms.GroupBox();
+            this.rScale1_8 = new System.Windows.Forms.RadioButton();
+            this.rScale1_4 = new System.Windows.Forms.RadioButton();
+            this.rScale1_2 = new System.Windows.Forms.RadioButton();
+            this.rScaleNormal = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.SecDet = new System.Windows.Forms.TextBox();
             this.StopCSV = new System.Windows.Forms.Button();
@@ -72,18 +77,16 @@
             this.FiftyFwd = new System.Windows.Forms.Button();
             this.FilenameBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.DrawScale = new System.Windows.Forms.GroupBox();
-            this.rScaleNormal = new System.Windows.Forms.RadioButton();
-            this.rScale1_2 = new System.Windows.Forms.RadioButton();
-            this.rScale1_4 = new System.Windows.Forms.RadioButton();
-            this.rScale1_8 = new System.Windows.Forms.RadioButton();
+            this.rScalex2 = new System.Windows.Forms.RadioButton();
+            this.rScalex4 = new System.Windows.Forms.RadioButton();
+            this.CSV_StartFrameReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoTimeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraphBox)).BeginInit();
             this.SpeedGroup.SuspendLayout();
             this.CSVgroup.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.DrawScale.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -122,7 +125,7 @@
             // 
             this.ResText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ResText.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ResText.Location = new System.Drawing.Point(703, 646);
+            this.ResText.Location = new System.Drawing.Point(703, 700);
             this.ResText.Name = "ResText";
             this.ResText.Size = new System.Drawing.Size(299, 52);
             this.ResText.TabIndex = 3;
@@ -181,7 +184,7 @@
             // ResText2
             // 
             this.ResText2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ResText2.Location = new System.Drawing.Point(203, 171);
+            this.ResText2.Location = new System.Drawing.Point(209, 217);
             this.ResText2.Name = "ResText2";
             this.ResText2.Size = new System.Drawing.Size(184, 46);
             this.ResText2.TabIndex = 9;
@@ -335,6 +338,7 @@
             // 
             // CSVgroup
             // 
+            this.CSVgroup.Controls.Add(this.CSV_StartFrameReset);
             this.CSVgroup.Controls.Add(this.DrawScale);
             this.CSVgroup.Controls.Add(this.label2);
             this.CSVgroup.Controls.Add(this.SecDet);
@@ -352,16 +356,79 @@
             this.CSVgroup.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CSVgroup.Location = new System.Drawing.Point(717, 310);
             this.CSVgroup.Name = "CSVgroup";
-            this.CSVgroup.Size = new System.Drawing.Size(407, 223);
+            this.CSVgroup.Size = new System.Drawing.Size(407, 277);
             this.CSVgroup.TabIndex = 22;
             this.CSVgroup.TabStop = false;
             this.CSVgroup.Text = "csv file adjustment";
+            // 
+            // DrawScale
+            // 
+            this.DrawScale.Controls.Add(this.rScalex4);
+            this.DrawScale.Controls.Add(this.rScalex2);
+            this.DrawScale.Controls.Add(this.rScale1_8);
+            this.DrawScale.Controls.Add(this.rScale1_4);
+            this.DrawScale.Controls.Add(this.rScale1_2);
+            this.DrawScale.Controls.Add(this.rScaleNormal);
+            this.DrawScale.Location = new System.Drawing.Point(139, 80);
+            this.DrawScale.Name = "DrawScale";
+            this.DrawScale.Size = new System.Drawing.Size(156, 119);
+            this.DrawScale.TabIndex = 34;
+            this.DrawScale.TabStop = false;
+            this.DrawScale.Text = "DrawScale";
+            // 
+            // rScale1_8
+            // 
+            this.rScale1_8.AutoSize = true;
+            this.rScale1_8.Location = new System.Drawing.Point(84, 85);
+            this.rScale1_8.Name = "rScale1_8";
+            this.rScale1_8.Size = new System.Drawing.Size(62, 25);
+            this.rScale1_8.TabIndex = 3;
+            this.rScale1_8.TabStop = true;
+            this.rScale1_8.Text = "x1/8";
+            this.rScale1_8.UseVisualStyleBackColor = true;
+            this.rScale1_8.CheckedChanged += new System.EventHandler(this.rScale1_8_CheckedChanged);
+            // 
+            // rScale1_4
+            // 
+            this.rScale1_4.AutoSize = true;
+            this.rScale1_4.Location = new System.Drawing.Point(84, 54);
+            this.rScale1_4.Name = "rScale1_4";
+            this.rScale1_4.Size = new System.Drawing.Size(62, 25);
+            this.rScale1_4.TabIndex = 2;
+            this.rScale1_4.TabStop = true;
+            this.rScale1_4.Text = "x1/4";
+            this.rScale1_4.UseVisualStyleBackColor = true;
+            this.rScale1_4.CheckedChanged += new System.EventHandler(this.rScale1_4_CheckedChanged);
+            // 
+            // rScale1_2
+            // 
+            this.rScale1_2.AutoSize = true;
+            this.rScale1_2.Location = new System.Drawing.Point(84, 23);
+            this.rScale1_2.Name = "rScale1_2";
+            this.rScale1_2.Size = new System.Drawing.Size(62, 25);
+            this.rScale1_2.TabIndex = 1;
+            this.rScale1_2.TabStop = true;
+            this.rScale1_2.Text = "x1/2";
+            this.rScale1_2.UseVisualStyleBackColor = true;
+            this.rScale1_2.CheckedChanged += new System.EventHandler(this.rScale1_2_CheckedChanged);
+            // 
+            // rScaleNormal
+            // 
+            this.rScaleNormal.AutoSize = true;
+            this.rScaleNormal.Location = new System.Drawing.Point(9, 23);
+            this.rScaleNormal.Name = "rScaleNormal";
+            this.rScaleNormal.Size = new System.Drawing.Size(45, 25);
+            this.rScaleNormal.TabIndex = 0;
+            this.rScaleNormal.TabStop = true;
+            this.rScaleNormal.Text = "x1";
+            this.rScaleNormal.UseVisualStyleBackColor = true;
+            this.rScaleNormal.CheckedChanged += new System.EventHandler(this.rScaleNormal_CheckedChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(6, 197);
+            this.label2.Location = new System.Drawing.Point(6, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 30;
@@ -369,7 +436,7 @@
             // 
             // SecDet
             // 
-            this.SecDet.Location = new System.Drawing.Point(61, 184);
+            this.SecDet.Location = new System.Drawing.Point(61, 227);
             this.SecDet.Name = "SecDet";
             this.SecDet.Size = new System.Drawing.Size(100, 33);
             this.SecDet.TabIndex = 31;
@@ -447,7 +514,7 @@
             // SaveSeconds
             // 
             this.SaveSeconds.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SaveSeconds.Location = new System.Drawing.Point(703, 539);
+            this.SaveSeconds.Location = new System.Drawing.Point(703, 593);
             this.SaveSeconds.Name = "SaveSeconds";
             this.SaveSeconds.Size = new System.Drawing.Size(91, 30);
             this.SaveSeconds.TabIndex = 26;
@@ -457,7 +524,7 @@
             // 
             this.DownSampling.Enabled = false;
             this.DownSampling.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DownSampling.Location = new System.Drawing.Point(1018, 642);
+            this.DownSampling.Location = new System.Drawing.Point(1018, 696);
             this.DownSampling.Name = "DownSampling";
             this.DownSampling.Size = new System.Drawing.Size(106, 53);
             this.DownSampling.TabIndex = 23;
@@ -480,7 +547,7 @@
             // CutSave
             // 
             this.CutSave.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CutSave.Location = new System.Drawing.Point(703, 579);
+            this.CutSave.Location = new System.Drawing.Point(703, 633);
             this.CutSave.Name = "CutSave";
             this.CutSave.Size = new System.Drawing.Size(125, 53);
             this.CutSave.TabIndex = 25;
@@ -492,7 +559,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(803, 546);
+            this.label1.Location = new System.Drawing.Point(803, 600);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 23);
             this.label1.TabIndex = 27;
@@ -558,7 +625,7 @@
             // FilenameBox
             // 
             this.FilenameBox.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FilenameBox.Location = new System.Drawing.Point(861, 602);
+            this.FilenameBox.Location = new System.Drawing.Point(861, 656);
             this.FilenameBox.Name = "FilenameBox";
             this.FilenameBox.Size = new System.Drawing.Size(116, 30);
             this.FilenameBox.TabIndex = 30;
@@ -567,78 +634,52 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(983, 609);
+            this.label4.Location = new System.Drawing.Point(983, 663);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 23);
             this.label4.TabIndex = 32;
             this.label4.Text = ".mp4/.csv";
             // 
-            // DrawScale
+            // rScalex2
             // 
-            this.DrawScale.Controls.Add(this.rScale1_8);
-            this.DrawScale.Controls.Add(this.rScale1_4);
-            this.DrawScale.Controls.Add(this.rScale1_2);
-            this.DrawScale.Controls.Add(this.rScaleNormal);
-            this.DrawScale.Location = new System.Drawing.Point(139, 80);
-            this.DrawScale.Name = "DrawScale";
-            this.DrawScale.Size = new System.Drawing.Size(156, 88);
-            this.DrawScale.TabIndex = 34;
-            this.DrawScale.TabStop = false;
-            this.DrawScale.Text = "DrawScale";
+            this.rScalex2.AutoSize = true;
+            this.rScalex2.Location = new System.Drawing.Point(9, 54);
+            this.rScalex2.Name = "rScalex2";
+            this.rScalex2.Size = new System.Drawing.Size(45, 25);
+            this.rScalex2.TabIndex = 4;
+            this.rScalex2.TabStop = true;
+            this.rScalex2.Text = "x2";
+            this.rScalex2.UseVisualStyleBackColor = true;
+            this.rScalex2.CheckedChanged += new System.EventHandler(this.rScalex2_CheckedChanged);
             // 
-            // rScaleNormal
+            // rScalex4
             // 
-            this.rScaleNormal.AutoSize = true;
-            this.rScaleNormal.Location = new System.Drawing.Point(6, 23);
-            this.rScaleNormal.Name = "rScaleNormal";
-            this.rScaleNormal.Size = new System.Drawing.Size(45, 25);
-            this.rScaleNormal.TabIndex = 0;
-            this.rScaleNormal.TabStop = true;
-            this.rScaleNormal.Text = "x1";
-            this.rScaleNormal.UseVisualStyleBackColor = true;
-            this.rScaleNormal.CheckedChanged += new System.EventHandler(this.rScaleNormal_CheckedChanged);
+            this.rScalex4.AutoSize = true;
+            this.rScalex4.Location = new System.Drawing.Point(9, 85);
+            this.rScalex4.Name = "rScalex4";
+            this.rScalex4.Size = new System.Drawing.Size(45, 25);
+            this.rScalex4.TabIndex = 5;
+            this.rScalex4.TabStop = true;
+            this.rScalex4.Text = "x4";
+            this.rScalex4.UseVisualStyleBackColor = true;
+            this.rScalex4.CheckedChanged += new System.EventHandler(this.rScalex4_CheckedChanged);
             // 
-            // rScale1_2
+            // CSV_StartFrameReset
             // 
-            this.rScale1_2.AutoSize = true;
-            this.rScale1_2.Location = new System.Drawing.Point(6, 46);
-            this.rScale1_2.Name = "rScale1_2";
-            this.rScale1_2.Size = new System.Drawing.Size(62, 25);
-            this.rScale1_2.TabIndex = 1;
-            this.rScale1_2.TabStop = true;
-            this.rScale1_2.Text = "x1/2";
-            this.rScale1_2.UseVisualStyleBackColor = true;
-            this.rScale1_2.CheckedChanged += new System.EventHandler(this.rScale1_2_CheckedChanged);
-            // 
-            // rScale1_4
-            // 
-            this.rScale1_4.AutoSize = true;
-            this.rScale1_4.Location = new System.Drawing.Point(84, 23);
-            this.rScale1_4.Name = "rScale1_4";
-            this.rScale1_4.Size = new System.Drawing.Size(62, 25);
-            this.rScale1_4.TabIndex = 2;
-            this.rScale1_4.TabStop = true;
-            this.rScale1_4.Text = "x1/4";
-            this.rScale1_4.UseVisualStyleBackColor = true;
-            this.rScale1_4.CheckedChanged += new System.EventHandler(this.rScale1_4_CheckedChanged);
-            // 
-            // rScale1_8
-            // 
-            this.rScale1_8.AutoSize = true;
-            this.rScale1_8.Location = new System.Drawing.Point(84, 46);
-            this.rScale1_8.Name = "rScale1_8";
-            this.rScale1_8.Size = new System.Drawing.Size(62, 25);
-            this.rScale1_8.TabIndex = 3;
-            this.rScale1_8.TabStop = true;
-            this.rScale1_8.Text = "x1/8";
-            this.rScale1_8.UseVisualStyleBackColor = true;
-            this.rScale1_8.CheckedChanged += new System.EventHandler(this.rScale1_8_CheckedChanged);
+            this.CSV_StartFrameReset.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CSV_StartFrameReset.Location = new System.Drawing.Point(301, 155);
+            this.CSV_StartFrameReset.Name = "CSV_StartFrameReset";
+            this.CSV_StartFrameReset.Size = new System.Drawing.Size(92, 48);
+            this.CSV_StartFrameReset.TabIndex = 35;
+            this.CSV_StartFrameReset.Text = " CSV開始時刻現フレームに";
+            this.CSV_StartFrameReset.UseVisualStyleBackColor = true;
+            this.CSV_StartFrameReset.Click += new System.EventHandler(this.CSV_StartFrameReset_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 707);
+            this.ClientSize = new System.Drawing.Size(1158, 761);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.FilenameBox);
             this.Controls.Add(this.FiftyFwd);
@@ -673,10 +714,10 @@
             this.SpeedGroup.PerformLayout();
             this.CSVgroup.ResumeLayout(false);
             this.CSVgroup.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.DrawScale.ResumeLayout(false);
             this.DrawScale.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,6 +774,9 @@
         private System.Windows.Forms.RadioButton rScale1_4;
         private System.Windows.Forms.RadioButton rScale1_2;
         private System.Windows.Forms.RadioButton rScaleNormal;
+        private System.Windows.Forms.RadioButton rScalex4;
+        private System.Windows.Forms.RadioButton rScalex2;
+        private System.Windows.Forms.Button CSV_StartFrameReset;
     }
 }
 
