@@ -52,7 +52,10 @@
             this.OneFwdCSV = new System.Windows.Forms.Button();
             this.OneBackCSV = new System.Windows.Forms.Button();
             this.CSVgroup = new System.Windows.Forms.GroupBox();
+            this.CSV_StartFrameReset = new System.Windows.Forms.Button();
             this.DrawScale = new System.Windows.Forms.GroupBox();
+            this.rScalex4 = new System.Windows.Forms.RadioButton();
+            this.rScalex2 = new System.Windows.Forms.RadioButton();
             this.rScale1_8 = new System.Windows.Forms.RadioButton();
             this.rScale1_4 = new System.Windows.Forms.RadioButton();
             this.rScale1_2 = new System.Windows.Forms.RadioButton();
@@ -77,9 +80,6 @@
             this.FiftyFwd = new System.Windows.Forms.Button();
             this.FilenameBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.rScalex2 = new System.Windows.Forms.RadioButton();
-            this.rScalex4 = new System.Windows.Forms.RadioButton();
-            this.CSV_StartFrameReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VideoTimeBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraphBox)).BeginInit();
@@ -125,7 +125,7 @@
             // 
             this.ResText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ResText.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ResText.Location = new System.Drawing.Point(703, 700);
+            this.ResText.Location = new System.Drawing.Point(703, 601);
             this.ResText.Name = "ResText";
             this.ResText.Size = new System.Drawing.Size(299, 52);
             this.ResText.TabIndex = 3;
@@ -184,7 +184,7 @@
             // ResText2
             // 
             this.ResText2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ResText2.Location = new System.Drawing.Point(209, 217);
+            this.ResText2.Location = new System.Drawing.Point(217, 206);
             this.ResText2.Name = "ResText2";
             this.ResText2.Size = new System.Drawing.Size(184, 46);
             this.ResText2.TabIndex = 9;
@@ -233,7 +233,7 @@
             // radioSpeed1
             // 
             this.radioSpeed1.AutoSize = true;
-            this.radioSpeed1.Location = new System.Drawing.Point(29, 19);
+            this.radioSpeed1.Location = new System.Drawing.Point(12, 19);
             this.radioSpeed1.Name = "radioSpeed1";
             this.radioSpeed1.Size = new System.Drawing.Size(55, 27);
             this.radioSpeed1.TabIndex = 14;
@@ -245,7 +245,7 @@
             // radioSpeed2
             // 
             this.radioSpeed2.AutoSize = true;
-            this.radioSpeed2.Location = new System.Drawing.Point(29, 40);
+            this.radioSpeed2.Location = new System.Drawing.Point(12, 40);
             this.radioSpeed2.Name = "radioSpeed2";
             this.radioSpeed2.Size = new System.Drawing.Size(65, 27);
             this.radioSpeed2.TabIndex = 15;
@@ -257,7 +257,7 @@
             // radioSpeed3
             // 
             this.radioSpeed3.AutoSize = true;
-            this.radioSpeed3.Location = new System.Drawing.Point(29, 62);
+            this.radioSpeed3.Location = new System.Drawing.Point(90, 19);
             this.radioSpeed3.Name = "radioSpeed3";
             this.radioSpeed3.Size = new System.Drawing.Size(65, 27);
             this.radioSpeed3.TabIndex = 16;
@@ -275,7 +275,7 @@
             this.SpeedGroup.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.SpeedGroup.Location = new System.Drawing.Point(715, 186);
             this.SpeedGroup.Name = "SpeedGroup";
-            this.SpeedGroup.Size = new System.Drawing.Size(115, 116);
+            this.SpeedGroup.Size = new System.Drawing.Size(163, 81);
             this.SpeedGroup.TabIndex = 17;
             this.SpeedGroup.TabStop = false;
             this.SpeedGroup.Text = "Play Speed";
@@ -283,7 +283,7 @@
             // radioSpeed4
             // 
             this.radioSpeed4.AutoSize = true;
-            this.radioSpeed4.Location = new System.Drawing.Point(29, 83);
+            this.radioSpeed4.Location = new System.Drawing.Point(90, 40);
             this.radioSpeed4.Name = "radioSpeed4";
             this.radioSpeed4.Size = new System.Drawing.Size(65, 27);
             this.radioSpeed4.TabIndex = 17;
@@ -354,12 +354,23 @@
             this.CSVgroup.Controls.Add(this.OneFwdCSV);
             this.CSVgroup.Controls.Add(this.ResText2);
             this.CSVgroup.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSVgroup.Location = new System.Drawing.Point(717, 310);
+            this.CSVgroup.Location = new System.Drawing.Point(717, 280);
             this.CSVgroup.Name = "CSVgroup";
-            this.CSVgroup.Size = new System.Drawing.Size(407, 277);
+            this.CSVgroup.Size = new System.Drawing.Size(407, 261);
             this.CSVgroup.TabIndex = 22;
             this.CSVgroup.TabStop = false;
             this.CSVgroup.Text = "csv file adjustment";
+            // 
+            // CSV_StartFrameReset
+            // 
+            this.CSV_StartFrameReset.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CSV_StartFrameReset.Location = new System.Drawing.Point(301, 155);
+            this.CSV_StartFrameReset.Name = "CSV_StartFrameReset";
+            this.CSV_StartFrameReset.Size = new System.Drawing.Size(92, 48);
+            this.CSV_StartFrameReset.TabIndex = 35;
+            this.CSV_StartFrameReset.Text = " CSV開始時刻現フレームに";
+            this.CSV_StartFrameReset.UseVisualStyleBackColor = true;
+            this.CSV_StartFrameReset.Click += new System.EventHandler(this.CSV_StartFrameReset_Click);
             // 
             // DrawScale
             // 
@@ -375,6 +386,30 @@
             this.DrawScale.TabIndex = 34;
             this.DrawScale.TabStop = false;
             this.DrawScale.Text = "DrawScale";
+            // 
+            // rScalex4
+            // 
+            this.rScalex4.AutoSize = true;
+            this.rScalex4.Location = new System.Drawing.Point(9, 85);
+            this.rScalex4.Name = "rScalex4";
+            this.rScalex4.Size = new System.Drawing.Size(45, 25);
+            this.rScalex4.TabIndex = 5;
+            this.rScalex4.TabStop = true;
+            this.rScalex4.Text = "x4";
+            this.rScalex4.UseVisualStyleBackColor = true;
+            this.rScalex4.CheckedChanged += new System.EventHandler(this.rScalex4_CheckedChanged);
+            // 
+            // rScalex2
+            // 
+            this.rScalex2.AutoSize = true;
+            this.rScalex2.Location = new System.Drawing.Point(9, 54);
+            this.rScalex2.Name = "rScalex2";
+            this.rScalex2.Size = new System.Drawing.Size(45, 25);
+            this.rScalex2.TabIndex = 4;
+            this.rScalex2.TabStop = true;
+            this.rScalex2.Text = "x2";
+            this.rScalex2.UseVisualStyleBackColor = true;
+            this.rScalex2.CheckedChanged += new System.EventHandler(this.rScalex2_CheckedChanged);
             // 
             // rScale1_8
             // 
@@ -428,7 +463,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(6, 240);
+            this.label2.Location = new System.Drawing.Point(6, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 30;
@@ -436,7 +471,7 @@
             // 
             // SecDet
             // 
-            this.SecDet.Location = new System.Drawing.Point(61, 227);
+            this.SecDet.Location = new System.Drawing.Point(61, 219);
             this.SecDet.Name = "SecDet";
             this.SecDet.Size = new System.Drawing.Size(100, 33);
             this.SecDet.TabIndex = 31;
@@ -503,7 +538,7 @@
             // ResetCSV
             // 
             this.ResetCSV.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ResetCSV.Location = new System.Drawing.Point(165, 26);
+            this.ResetCSV.Location = new System.Drawing.Point(163, 26);
             this.ResetCSV.Name = "ResetCSV";
             this.ResetCSV.Size = new System.Drawing.Size(61, 48);
             this.ResetCSV.TabIndex = 22;
@@ -514,9 +549,9 @@
             // SaveSeconds
             // 
             this.SaveSeconds.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SaveSeconds.Location = new System.Drawing.Point(703, 593);
+            this.SaveSeconds.Location = new System.Drawing.Point(703, 547);
             this.SaveSeconds.Name = "SaveSeconds";
-            this.SaveSeconds.Size = new System.Drawing.Size(91, 30);
+            this.SaveSeconds.Size = new System.Drawing.Size(75, 30);
             this.SaveSeconds.TabIndex = 26;
             this.SaveSeconds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -524,7 +559,7 @@
             // 
             this.DownSampling.Enabled = false;
             this.DownSampling.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DownSampling.Location = new System.Drawing.Point(1018, 696);
+            this.DownSampling.Location = new System.Drawing.Point(1018, 600);
             this.DownSampling.Name = "DownSampling";
             this.DownSampling.Size = new System.Drawing.Size(106, 53);
             this.DownSampling.TabIndex = 23;
@@ -547,9 +582,9 @@
             // CutSave
             // 
             this.CutSave.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CutSave.Location = new System.Drawing.Point(703, 633);
+            this.CutSave.Location = new System.Drawing.Point(811, 547);
             this.CutSave.Name = "CutSave";
-            this.CutSave.Size = new System.Drawing.Size(125, 53);
+            this.CutSave.Size = new System.Drawing.Size(125, 51);
             this.CutSave.TabIndex = 25;
             this.CutSave.Text = " カーソル位置から 指定秒数保存";
             this.CutSave.UseVisualStyleBackColor = true;
@@ -559,7 +594,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(803, 600);
+            this.label1.Location = new System.Drawing.Point(780, 554);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 23);
             this.label1.TabIndex = 27;
@@ -570,7 +605,7 @@
             this.groupBox1.Controls.Add(this.radioMJPG);
             this.groupBox1.Controls.Add(this.radioH264);
             this.groupBox1.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox1.Location = new System.Drawing.Point(887, 219);
+            this.groupBox1.Location = new System.Drawing.Point(995, 190);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(115, 85);
             this.groupBox1.TabIndex = 18;
@@ -625,7 +660,7 @@
             // FilenameBox
             // 
             this.FilenameBox.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FilenameBox.Location = new System.Drawing.Point(861, 656);
+            this.FilenameBox.Location = new System.Drawing.Point(945, 547);
             this.FilenameBox.Name = "FilenameBox";
             this.FilenameBox.Size = new System.Drawing.Size(116, 30);
             this.FilenameBox.TabIndex = 30;
@@ -634,52 +669,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(983, 663);
+            this.label4.Location = new System.Drawing.Point(1067, 554);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 23);
             this.label4.TabIndex = 32;
             this.label4.Text = ".mp4/.csv";
             // 
-            // rScalex2
-            // 
-            this.rScalex2.AutoSize = true;
-            this.rScalex2.Location = new System.Drawing.Point(9, 54);
-            this.rScalex2.Name = "rScalex2";
-            this.rScalex2.Size = new System.Drawing.Size(45, 25);
-            this.rScalex2.TabIndex = 4;
-            this.rScalex2.TabStop = true;
-            this.rScalex2.Text = "x2";
-            this.rScalex2.UseVisualStyleBackColor = true;
-            this.rScalex2.CheckedChanged += new System.EventHandler(this.rScalex2_CheckedChanged);
-            // 
-            // rScalex4
-            // 
-            this.rScalex4.AutoSize = true;
-            this.rScalex4.Location = new System.Drawing.Point(9, 85);
-            this.rScalex4.Name = "rScalex4";
-            this.rScalex4.Size = new System.Drawing.Size(45, 25);
-            this.rScalex4.TabIndex = 5;
-            this.rScalex4.TabStop = true;
-            this.rScalex4.Text = "x4";
-            this.rScalex4.UseVisualStyleBackColor = true;
-            this.rScalex4.CheckedChanged += new System.EventHandler(this.rScalex4_CheckedChanged);
-            // 
-            // CSV_StartFrameReset
-            // 
-            this.CSV_StartFrameReset.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_StartFrameReset.Location = new System.Drawing.Point(301, 155);
-            this.CSV_StartFrameReset.Name = "CSV_StartFrameReset";
-            this.CSV_StartFrameReset.Size = new System.Drawing.Size(92, 48);
-            this.CSV_StartFrameReset.TabIndex = 35;
-            this.CSV_StartFrameReset.Text = " CSV開始時刻現フレームに";
-            this.CSV_StartFrameReset.UseVisualStyleBackColor = true;
-            this.CSV_StartFrameReset.Click += new System.EventHandler(this.CSV_StartFrameReset_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 761);
+            this.ClientSize = new System.Drawing.Size(1158, 662);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.FilenameBox);
             this.Controls.Add(this.FiftyFwd);
